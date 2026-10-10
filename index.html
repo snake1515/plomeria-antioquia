@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plomería Antioquia</title>
+<meta name="description" content="Plomería profesional en Medellín y Antioquia. Emergencias 24/7, destapes, detección de fugas, hidrojet e inspección con cámara. Garantía escrita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Kalam:wght@700&display=swap">
+<style>
+/* Layout: marca de agua — bandas onduladas azul/verde como el manual de marca, contenido en columna de 1180px */
+:root{
+  --azul:#1592E6;        /* azul claro – confianza */
+  --verde:#43A82F;       /* verde claro – naturaleza */
+  --navy:#0A3A8A;        /* azul oscuro – profesionalismo */
+  --gris:#7E8A96;        /* gris – equilibrio */
+  --bg:#FFFFFF;
+  --bg-soft:#F2F7FC;
+  --fg:#0E2240;
+  --muted:#4F6077;
+  --line:#D9E5F1;
+  --card:#FFFFFF;
+  --on-dark:#FFFFFF;
+  --band:#0A3A8A;
+  --verde-txt:#2E8A1E;
+  --azul-txt:#0D72C2;
+  --f-display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-script:"Kalam","Segoe Print","Comic Sans MS",cursive;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#071A36;--bg-soft:#0B2448;--fg:#EAF2FB;--muted:#A9BBD1;--line:#1D3C66;--card:#0D2A52;
+  --band:#04122A;--verde-txt:#6FD15A;--azul-txt:#5AB8FF;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#071A36;--bg-soft:#0B2448;--fg:#EAF2FB;--muted:#A9BBD1;--line:#1D3C66;--card:#0D2A52;
+  --band:#04122A;--verde-txt:#6FD15A;--azul-txt:#5AB8FF;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+section{padding-block:80px}
+.eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--verde-txt);margin-bottom:10px}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--fg)}
+.sec-head h2 em{font-style:normal;color:var(--azul-txt)}
+.sec-head p{color:var(--muted);margin-top:12px;font-size:1.05rem}
+:focus-visible{outline:3px solid var(--verde);outline-offset:3px;border-radius:6px}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;transition:transform .15s,box-shadow .15s;font-size:1rem}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--verde);color:#fff;box-shadow:0 8px 20px -8px rgba(67,168,47,.7)}
+.btn-call{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.btn-blue{background:var(--azul);color:#fff}
+.btn-ghost{border-color:var(--line);color:var(--fg)}
+
+/* Barra superior */
+.topbar{background:var(--band);color:var(--on-dark);font-size:.88rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:8px;flex-wrap:wrap}
+.topbar a{text-decoration:none;font-weight:700}
+.topbar .tb-r{display:flex;gap:16px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:#6FE05A;display:inline-block;margin-right:6px;box-shadow:0 0 0 0 rgba(111,224,90,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(111,224,90,0)}100%{box-shadow:0 0 0 0 rgba(111,224,90,0)}}
+
+/* Header */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:48px;height:48px;flex:none}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-txt b{font-family:var(--f-display);font-weight:800;font-size:1.15rem;color:var(--azul-txt);letter-spacing:.02em}
+.brand-txt b span{color:var(--verde-txt)}
+.brand-txt i{font-family:var(--f-script);font-style:normal;font-size:.85rem;color:var(--muted);margin-top:3px}
+nav.menu{display:flex;gap:4px;align-items:center}
+nav.menu a{text-decoration:none;font-weight:700;font-size:.95rem;padding:8px 12px;border-radius:8px;color:var(--fg)}
+nav.menu a:hover{background:var(--bg-soft);color:var(--azul-txt)}
+nav.menu .btn{padding:10px 18px;margin-left:8px;color:#fff}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--fg);cursor:pointer}
+@media (max-width:900px){
+  .burger{display:block}
+  nav.menu{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 20px 18px}
+  nav.menu .btn{margin:8px 0 0;justify-content:center}
+}
+@media (max-width:900px){nav.menu:not(.open){display:none}}
+
+/* Hero */
+.hero{position:relative;background:linear-gradient(135deg,var(--navy) 0%,#0F5FC0 55%,var(--azul) 100%);color:#fff;padding-block:72px 120px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;border:60px solid rgba(255,255,255,.06)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero .wrap>*{min-width:0}
+.badge{display:inline-flex;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-weight:700;font-size:.88rem}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;margin-top:18px}
+.hero h1 span{color:#8BE070}
+.hero .lead{font-size:1.12rem;opacity:.92;margin-top:16px;max-width:560px}
+.checks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px}
+.checks li{display:flex;gap:10px;align-items:center;font-weight:600}
+.checks li::before{content:"";width:22px;height:22px;flex:none;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/14px no-repeat}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-art{display:grid;place-items:center}
+.hero-art svg{width:100%;max-width:380px;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.25))}
+.wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:90px;display:block}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-art{order:-1}.hero-art svg{max-width:220px}}
+
+/* Cifras */
+.stats{margin-top:-70px;position:relative;z-index:2;padding-block:0}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 40px -24px rgba(10,58,138,.35);overflow:hidden}
+.stat{padding:26px 18px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--f-display);font-size:2.4rem;font-weight:800;color:var(--azul-txt);line-height:1;font-variant-numeric:tabular-nums}
+.stat:nth-child(even) b{color:var(--verde-txt)}
+.stat span{color:var(--muted);font-weight:700;font-size:.92rem}
+@media (max-width:640px){.stats .grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* Cinta de confianza */
+.ticker{padding-block:28px 0;overflow:hidden}
+.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:scroll 32s linear infinite;width:max-content}
+.ticker-track span{font-weight:700;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.ticker-track span::before{content:"";width:10px;height:13px;background:var(--azul);clip-path:path("M5 0C5 0 0 6 0 8.5A5 4.5 0 0 0 10 8.5C10 6 5 0 5 0Z")}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Problemas */
+.problems{background:var(--bg)}
+.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.prob{background:var(--bg-soft);border-radius:var(--r);padding:24px;border:1px solid var(--line)}
+.prob .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--card);color:var(--azul-txt);margin-bottom:14px;border:1px solid var(--line)}
+.prob .ic svg{width:24px;height:24px}
+.prob h3{font-size:1.2rem;margin-bottom:6px}
+.prob p{color:var(--muted);font-size:.95rem}
+.prob-cta{margin-top:30px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--navy);color:#fff;padding:22px 26px;border-radius:var(--r)}
+.prob-cta p{font-weight:700;font-size:1.08rem}
+@media (max-width:980px){.prob-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.prob-grid{grid-template-columns:1fr}}
+
+/* Servicios */
+.services{background:var(--bg-soft)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(10,58,138,.45)}
+.svc-top{position:relative;height:150px;display:grid;place-items:center;background:linear-gradient(140deg,var(--navy),var(--azul))}
+.svc:nth-child(even) .svc-top{background:linear-gradient(140deg,#1E7A2A,var(--verde))}
+.svc-top svg{width:76px;height:76px;color:#fff;opacity:.95}
+.svc-top .tag{position:absolute;top:12px;left:12px;background:#fff;color:var(--navy);font-weight:800;font-size:.75rem;padding:4px 10px;border-radius:999px}
+.svc-body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.svc-cat{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--verde-txt)}
+.svc h3{font-size:1.25rem}
+.svc p{color:var(--muted);font-size:.95rem}
+.svc ul{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:6px}
+.svc li{font-size:.93rem;font-weight:600;padding-left:22px;position:relative}
+.svc li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:50%;background:var(--verde)}
+.svc-actions{margin-top:auto;padding-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.svc-actions .btn{padding:10px 16px;font-size:.92rem}
+@media (max-width:980px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.svc-grid{grid-template-columns:1fr}}
+
+/* Tecnología */
+.tech{background:var(--band);color:#fff}
+.tech .sec-head h2{color:#fff}
+.tech .sec-head p{color:#C3D4EC}
+.tech .eyebrow{color:#8BE070}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:26px;background:rgba(255,255,255,.04)}
+.tcard .ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--azul),var(--verde));margin-bottom:16px}
+.tcard .ic svg{width:28px;height:28px;color:#fff}
+.tcard h3{font-size:1.3rem;margin-bottom:8px}
+.tcard p{color:#C3D4EC;font-size:.95rem}
+.specs{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.specs span{font-size:.8rem;font-weight:700;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.1);font-variant-numeric:tabular-nums}
+@media (max-width:900px){.tech-grid{grid-template-columns:1fr}}
+
+/* Ventajas */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px}
+.adv{display:flex;gap:16px;align-items:flex-start}
+.adv .ic{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:3px solid var(--azul);color:var(--azul-txt)}
+.adv:nth-child(even) .ic{border-color:var(--verde);color:var(--verde-txt)}
+.adv .ic svg{width:24px;height:24px}
+.adv h4{font-size:1.15rem;margin-bottom:4px}
+.adv p{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.adv-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.adv-grid{grid-template-columns:1fr}}
+
+/* Proceso */
+.process{background:var(--bg-soft)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;position:relative}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;position:relative}
+.step .n{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.3rem;color:#fff;background:var(--azul);margin-bottom:14px}
+.step:nth-child(even) .n{background:var(--verde)}
+.step h4{font-size:1.15rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* Nosotros */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about-grid>*{min-width:0}
+.about-story h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.about-story p{color:var(--muted);margin-top:16px;font-size:1.03rem}
+.about-story .sig{font-family:var(--f-script);font-size:1.6rem;color:var(--azul-txt);margin-top:20px}
+.mv{display:grid;gap:18px}
+.mv-card{border-radius:18px;padding:26px;border:1px solid var(--line);background:var(--bg-soft)}
+.mv-card h3{font-size:1.35rem;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.mv-card h3 svg{width:28px;height:28px;color:var(--azul-txt)}
+.mv-card.v h3 svg{color:var(--verde-txt)}
+.mv-card p{color:var(--muted)}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.val{text-align:center;padding:24px 16px;border-radius:var(--r);border:1px solid var(--line)}
+.val .ic{width:62px;height:62px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--azul) 0 60%,var(--verde) 60% 100%);padding:3px}
+.val .ic i{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;place-items:center;color:var(--azul-txt)}
+.val .ic svg{width:26px;height:26px}
+.val h4{font-size:1.15rem}
+.val p{color:var(--muted);font-size:.92rem;margin-top:4px}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:36px}.values{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.values{grid-template-columns:1fr}}
+
+/* Cobertura */
+.coverage{background:var(--bg-soft)}
+.cov-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cov{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
+.cov h3{font-size:1.4rem;display:flex;align-items:center;gap:10px}
+.cov h3 svg{width:26px;height:26px;color:var(--azul-txt)}
+.cov:nth-child(2) h3 svg{color:var(--verde-txt)}
+.cov>p{color:var(--muted);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{font-size:.88rem;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--line)}
+.resp{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);color:var(--muted)}
+.resp b{color:var(--fg);font-variant-numeric:tabular-nums}
+@media (max-width:800px){.cov-grid{grid-template-columns:1fr}}
+
+/* CTA final */
+.cta{background:linear-gradient(120deg,var(--navy),#0F5FC0 60%,var(--verde));color:#fff;text-align:center;position:relative;overflow:hidden}
+.cta h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:800}
+.cta p{opacity:.92;margin:14px auto 0;max-width:560px;font-size:1.08rem}
+.cta .hero-ctas{justify-content:center}
+.cta small{display:block;margin-top:22px;font-weight:700;opacity:.9}
+
+/* Contacto */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.contact-grid>*{min-width:0}
+.c-list{display:grid;gap:14px;margin-top:20px}
+.c-item{display:flex;gap:14px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:var(--r)}
+.c-item .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--bg-soft);color:var(--azul-txt);flex:none}
+.c-item .ic svg{width:22px;height:22px}
+.c-item small{display:block;color:var(--muted);font-weight:600}
+.c-item b{font-size:1.05rem;user-select:all}
+form.quote{background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:14px}
+form.quote h3{font-size:1.4rem}
+.field{display:grid;gap:6px}
+.field label{font-weight:700;font-size:.9rem}
+.field input,.field select,.field textarea{font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);width:100%}
+.field textarea{min-height:96px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.row2{grid-template-columns:1fr}}
+
+/* Footer */
+footer{background:var(--band);color:#C3D4EC;padding-block:56px 28px;position:relative}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:32px}
+.f-grid>*{min-width:0}
+footer .brand-txt b{color:#fff}
+footer .brand-txt b span{color:#8BE070}
+footer .brand-txt i{color:#C3D4EC}
+footer h5{font-family:var(--f-display);font-size:1.05rem;color:#fff;margin:0 0 12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer .f-about{margin-top:14px;font-size:.95rem;max-width:320px}
+.f-bottom{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.88rem}
+.f-bottom i{font-family:var(--f-script);font-style:normal;color:#8BE070;font-size:1.05rem}
+@media (max-width:900px){.f-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.f-grid{grid-template-columns:1fr}}
+
+/* WhatsApp flotante */
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:800;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 12px 28px -10px rgba(0,0,0,.45)}
+.wa-float svg{width:26px;height:26px}
+@media (max-width:520px){.wa-float span{display:none}.wa-float{padding:14px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ===== Fotos ===== */
+.hero .wrap{grid-template-columns:1.05fr .95fr}
+.hero-photo{position:relative;margin:0}
+.hero-photo img{display:block;width:100%;aspect-ratio:4/5;max-height:560px;object-fit:cover;object-position:30% center;border-radius:24px;border:4px solid rgba(255,255,255,.18);box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.float{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;color:#0E2240;padding:10px 14px;border-radius:14px;box-shadow:0 16px 30px -12px rgba(0,0,0,.4);font-size:.85rem;line-height:1.25}
+.float b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.float .fi{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff;flex:none}
+.float .fi svg{width:20px;height:20px}
+.float.f1{left:-18px;bottom:28px}.float.f1 .fi{background:#43A82F}
+.float.f2{right:-14px;top:24px}.float.f2 .fi{background:#1592E6}
+@media (max-width:900px){.hero-art{order:0}.hero-photo img{aspect-ratio:4/3;max-height:none;object-position:35% 20%}.float.f1{left:10px;bottom:12px}.float.f2{right:10px;top:12px}}
+.svc-top{height:210px;overflow:hidden}
+.svc-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.svc:hover .svc-top img{transform:scale(1.05)}
+.svc-top.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,58,138,0) 55%,rgba(10,58,138,.45))}
+.svc-top .tag{z-index:1}
+.about-photo{margin:0;position:relative}
+.about-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.about-photo figcaption{position:absolute;left:14px;bottom:14px;background:var(--navy);color:#fff;font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px}
+.cta{text-align:left;padding-block:0}
+.cta .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end}
+.cta .wrap>*{min-width:0}
+.cta-txt{padding-block:72px}
+.cta p{margin-left:0}
+.cta .hero-ctas{justify-content:flex-start}
+.cta-photo{align-self:end;margin:0}
+.cta-photo img{display:block;width:100%;max-width:380px;margin-left:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 15%;border-radius:24px 24px 0 0}
+@media (max-width:800px){.cta .wrap{grid-template-columns:1fr}.cta-txt{padding-block:60px 0}.cta-photo img{margin-inline:auto;max-width:300px}}
+</style>
+</head>
+<body>
+
+<!-- Íconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gDrop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FB6FF"/><stop offset="1" stop-color="#0A5BC4"/></linearGradient>
+    <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FD45E"/><stop offset="1" stop-color="#2E8A1E"/></linearGradient>
+  </defs>
+  <symbol id="logo" viewBox="0 0 100 100">
+    <path d="M50 6c-24 0-44 20-44 44 0 20 13 36 31 42" fill="none" stroke="#1592E6" stroke-width="8" stroke-linecap="round"/>
+    <path d="M72 14c12 8 20 21 20 36 0 22-17 40-39 42" fill="none" stroke="#43A82F" stroke-width="8" stroke-linecap="round"/>
+    <path d="M50 18C50 18 28 44 28 58a22 22 0 0 0 44 0C72 44 50 18 50 18Z" fill="url(#gDrop)"/>
+    <path d="M42 50c-4 6-5 11-3 16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+    <path d="M58 88c6-14 18-22 32-24-2 14-14 24-32 24Z" fill="url(#gLeaf)"/>
+  </symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3Z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.7S5 10.3 5 15a7 7 0 0 0 14 0c0-4.7-7-12.3-7-12.3Z"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8Z"/></symbol>
+  <symbol id="i-pipe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 7h8a3 3 0 0 1 3 3v11M3 4v6M10 21h8M17 10h4v4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M2 12h2l2-6 3 12 3-9 2 6 2-3h6"/></symbol>
+  <symbol id="i-jet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 12h7M10 8v8l4-2v-4l-4-2ZM16 9l5-2M16 12h6M16 15l5 2"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 10.5 12 3l9 7.5V21H3V10.5Z"/><path fill="none" stroke="currentColor" stroke-width="2" d="M9 21v-6h6v6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM8 5h8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 22s7-6.3 7-12a7 7 0 0 0-14 0c0 5.7 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 18a9 9 0 1 1 16 0M12 13l4-4"/></symbol>
+  <symbol id="i-nose" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 8c3-2 5 2 8 0s5-2 8 0M4 13c3-2 5 2 8 0s5-2 8 0M4 18c3-2 5 2 8 0s5-2 8 0"/></symbol>
+  <symbol id="i-bill" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2V2Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 7h6M9 11h6M9 15h3"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 20A7 7 0 0 1 4 13C4 7 9 3 20 3c0 11-4 16-9 17ZM4 21c3-6 7-9 11-11"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="m22 6-10 7L2 6"/></symbol>
+</defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><i class="dot"></i>Atención de emergencias 24/7 en todo Antioquia</span>
+    <div class="tb-r">
+      <a class="js-tel" href="#contacto"><span class="js-phone">+57 300 000 0000</span></a>
+      <a class="js-wa" href="#contacto" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Plomería Antioquia, inicio">
+      <svg><use href="#logo"/></svg>
+      <span class="brand-txt"><b>PLOMERÍA <span>ANTIOQUIA</span></b><i>Tu hogar en buenas manos</i></span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="menu" id="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn btn-wa js-wa" data-msg="Hola, quiero agendar un servicio" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Agendar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="badge"><i class="dot"></i>Técnicos disponibles en este momento</span>
+      <h1>Plomeros expertos en Medellín y Antioquia, <span>listos las 24 horas</span></h1>
+      <p class="lead">Resolvemos fugas, tuberías tapadas y emergencias hidráulicas en el menor tiempo. Personal certificado, equipos de última generación y garantía escrita en cada trabajo.</p>
+      <ul class="checks">
+        <li>Atención inmediata los 365 días del año</li>
+        <li>Soluciones sin romper pisos ni paredes</li>
+        <li>Técnicos capacitados y con certificación</li>
+      </ul>
+      <div class="hero-ctas">
+        <a class="btn btn-wa js-wa" data-msg="Hola, necesito un diagnóstico urgente" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escríbenos por WhatsApp</a>
+        <a class="btn btn-call js-tel" href="#contacto"><svg><use href="#i-phone"/></svg>Llamar ahora</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <figure class="hero-photo">
+        <img src="img/hero-plomero.webp" width="1400" height="787" alt="Técnico de Plomería Antioquia con su caja de herramientas en una cocina de Medellín" fetchpriority="high">
+        <div class="float f2"><span class="fi"><svg><use href="#i-clock"/></svg></span><span><b>&lt; 60 min</b>Tiempo de llegada</span></div>
+        <div class="float f1"><span class="fi"><svg><use href="#i-shield"/></svg></span><span><b>Garantía escrita</b>En cada servicio</span></div>
+      </figure>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 50C240 90 480 10 720 40s480 50 720 0v50H0Z" fill="#43A82F" opacity=".9"/>
+    <path d="M0 70C260 30 520 90 780 60s440-40 660 0v30H0Z" fill="var(--bg)"/>
+  </svg>
+</section>
+
+<!-- CIFRAS -->
+<section class="stats" aria-label="Cifras">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat"><b>+500</b><span>Servicios realizados</span></div>
+      <div class="stat"><b>24/7</b><span>Disponibilidad</span></div>
+      <div class="stat"><b>&lt;60'</b><span>Tiempo de llegada</span></div>
+      <div class="stat"><b>100%</b><span>Con garantía</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Técnicos certificados</span><span>Llegamos en menos de 60 min</span><span>Garantía escrita</span><span>Equipos de última generación</span><span>Medellín y todo Antioquia</span><span>+500 servicios realizados</span>
+    <span>Técnicos certificados</span><span>Llegamos en menos de 60 min</span><span>Garantía escrita</span><span>Equipos de última generación</span><span>Medellín y todo Antioquia</span><span>+500 servicios realizados</span>
+  </div>
+</div>
+
+<!-- PROBLEMAS -->
+<section class="problems">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">¿Te suena familiar?</span>
+      <h2>¿Tu sistema de agua te está dando <em>dolores de cabeza</em>?</h2>
+    </div>
+    <div class="prob-grid">
+      <article class="prob"><div class="ic"><svg><use href="#i-drop"/></svg></div><h3>Desagües que no drenan</h3><p>El agua se queda estancada o se forman charcos que no desaparecen.</p></article>
+      <article class="prob"><div class="ic"><svg><use href="#i-bill"/></svg></div><h3>Recibos de agua cada vez más altos</h3><p>El consumo sube cada mes y no encuentras la causa.</p></article>
+      <article class="prob"><div class="ic"><svg><use href="#i-nose"/></svg></div><h3>Malos olores en las tuberías</h3><p>Olores fuertes que salen de sifones, desagües o el alcantarillado.</p></article>
+      <article class="prob"><div class="ic"><svg><use href="#i-gauge"/></svg></div><h3>Poca presión en las llaves</h3><p>El agua sale débil en duchas, lavamanos y lavaplatos.</p></article>
+    </div>
+    <div class="prob-cta">
+      <p>Entre más esperes, más grande se vuelve el daño. Te ayudamos hoy mismo.</p>
+      <a class="btn btn-wa js-wa" data-msg="Hola, necesito ayuda con mi sistema de agua" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Pedir ayuda ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Nuestros servicios</span>
+      <h2>Servicios de plomería para <em>hogares y empresas</em></h2>
+      <p>Soluciones integrales para casas, negocios, edificios y propiedades horizontales en Medellín y Antioquia.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc">
+        <div class="svc-top photo"><span class="tag">El más solicitado</span><img src="img/destape-alcantarillado.webp" alt="Técnico destapando una caja de inspección con sonda eléctrica" style="object-position:center 30%" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-cat">Destapes</span>
+          <h3>Destape de alcantarillados</h3>
+          <p>Retiramos obstrucciones en tuberías, cajas de inspección y drenajes con equipos de alta presión, sin romper estructuras.</p>
+          <ul><li>Sin demoler pisos ni paredes</li><li>Limpieza profunda a presión</li><li>Solución el mismo día</li></ul>
+          <div class="svc-actions"><a class="btn btn-wa js-wa" data-msg="Hola, necesito información sobre Destapes" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotizar</a></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="svc-top photo"><span class="tag">Tecnología Hidrojet</span><img src="img/hidrojet.webp" alt="Técnico limpiando una tubería con equipo Hidrojet de alta presión" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-cat">Destaqueos</span>
+          <h3>Destaqueo de tuberías con Hidrojet</h3>
+          <p>Chorros de agua a alta presión recorren la tubería por dentro y eliminan grasa, sedimentos y obstrucciones de forma definitiva.</p>
+          <ul><li>Hasta 4.000 PSI de presión</li><li>Equipos móviles industriales</li><li>Residencial y comercial</li></ul>
+          <div class="svc-actions"><a class="btn btn-wa js-wa" data-msg="Hola, necesito información sobre Destaqueos" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotizar</a></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="svc-top photo"><span class="tag">Sin demolición</span><img src="img/fugas-geofono.webp" alt="Técnico detectando una fuga oculta con geófono digital" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-cat">Fugas y humedades</span>
+          <h3>Detección y reparación de fugas</h3>
+          <p>Ubicamos filtraciones ocultas con geófonos digitales y sensores acústicos, y reparamos solo donde está el daño.</p>
+          <ul><li>Geófonos digitales de precisión</li><li>Diagnóstico sin excavar</li><li>Reparación puntual con garantía</li></ul>
+          <div class="svc-actions"><a class="btn btn-wa js-wa" data-msg="Hola, necesito información sobre Fugas y Humedades" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotizar</a></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="svc-top"><span class="tag">Cámara HD en vivo</span><svg><use href="#i-cam"/></svg></div>
+        <div class="svc-body">
+          <span class="svc-cat">Inspección</span>
+          <h3>Inspección de redes con cámara</h3>
+          <p>Revisamos el estado interno de tus redes de drenaje sin excavar, con cámaras y sondas de largo alcance.</p>
+          <ul><li>Imagen en tiempo real</li><li>Equipos de largo alcance</li><li>Informe técnico del diagnóstico</li></ul>
+          <div class="svc-actions"><a class="btn btn-wa js-wa" data-msg="Hola, necesito información sobre Inspección" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotizar</a></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="svc-top photo"><img src="img/reparacion-tuberias.webp" alt="Técnico reparando el sifón bajo un lavaplatos" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-cat">Reparaciones</span>
+          <h3>Reparación de tuberías</h3>
+          <p>Atendemos fugas, rupturas y fallas hidráulicas con rapidez, siempre con un diagnóstico claro antes de intervenir.</p>
+          <ul><li>Reparación de fugas y rupturas</li><li>Cambio de tramos dañados</li><li>Sellado de filtraciones</li></ul>
+          <div class="svc-actions"><a class="btn btn-wa js-wa" data-msg="Hola, necesito información sobre Reparaciones" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotizar</a></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="svc-top photo"><img src="img/plomeria-general.webp" alt="Técnico instalando una grifería en un baño moderno" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-cat">Plomería general</span>
+          <h3>Plomería para hogares y empresas</h3>
+          <p>Instalación, mantenimiento y reparación de sanitarios, grifería y redes hidráulicas en cualquier tipo de inmueble.</p>
+          <ul><li>Instalación y arreglo de sanitarios</li><li>Grifería y redes hidráulicas</li><li>Mantenimiento preventivo</li></ul>
+          <div class="svc-actions"><a class="btn btn-wa js-wa" data-msg="Hola, necesito información sobre Plomería General" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Cotizar</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍA -->
+<section class="tech" id="tecnologia">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Equipos especializados</span>
+      <h2>Tecnología que hace la diferencia</h2>
+      <p>Trabajamos con herramientas modernas que nos permiten dar soluciones exactas sin dañar tus instalaciones.</p>
+    </div>
+    <div class="tech-grid">
+      <article class="tcard"><div class="ic"><svg><use href="#i-jet"/></svg></div><h3>Sistema Hidrojet</h3><p>Agua a alta presión para limpiar a fondo el interior de las tuberías sin afectar la red.</p><div class="specs"><span>Alcance: 80 m</span><span>Presión: 4.000 PSI</span></div></article>
+      <article class="tcard"><div class="ic"><svg><use href="#i-wave"/></svg></div><h3>Geófonos digitales</h3><p>Escucha acústica de alta precisión para encontrar fugas ocultas antes de romper.</p><div class="specs"><span>Precisión: ±2 cm</span><span>Profundidad: 6 m</span></div></article>
+      <article class="tcard"><div class="ic"><svg><use href="#i-cam"/></svg></div><h3>Cámara de inspección HD</h3><p>Recorrido visual en vivo por dentro de tuberías de distintos diámetros.</p><div class="specs"><span>Alcance: 80 m</span><span>Ø 50–300 mm</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- VENTAJAS -->
+<section class="advantages">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Por qué elegirnos</span>
+      <h2>Razones para dejar tu hogar <em>en buenas manos</em></h2>
+    </div>
+    <div class="adv-grid">
+      <div class="adv"><div class="ic"><svg><use href="#i-clock"/></svg></div><div><h4>Siempre disponibles</h4><p>Atendemos emergencias todos los días, a cualquier hora, incluso domingos y festivos.</p></div></div>
+      <div class="adv"><div class="ic"><svg><use href="#i-bolt"/></svg></div><div><h4>Respuesta rápida</h4><p>Contestamos en minutos y llegamos en menos de 60 minutos en el área metropolitana.</p></div></div>
+      <div class="adv"><div class="ic"><svg><use href="#i-user"/></svg></div><div><h4>Técnicos calificados</h4><p>Personal con formación especializada y amplia experiencia en plomería.</p></div></div>
+      <div class="adv"><div class="ic"><svg><use href="#i-shield"/></svg></div><div><h4>Garantía escrita</h4><p>Cada trabajo queda respaldado por un documento de garantía firmado.</p></div></div>
+      <div class="adv"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><h4>Amplia cobertura</h4><p>Llegamos a todo el Valle de Aburrá y a los municipios del Oriente antioqueño.</p></div></div>
+      <div class="adv"><div class="ic"><svg><use href="#i-tag"/></svg></div><div><h4>Precios claros</h4><p>Te damos el valor exacto antes de empezar. Sin cobros sorpresa.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Así trabajamos</span>
+      <h2>Fácil, rápido y <em>con garantía</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Nos escribes</h4><p>Por WhatsApp o llamada. Te respondemos al instante, las 24 horas.</p></div>
+      <div class="step"><div class="n">2</div><h4>Diagnóstico</h4><p>Un técnico revisa el problema con equipos especializados.</p></div>
+      <div class="step"><div class="n">3</div><h4>Cotización</h4><p>Conoces el costo exacto antes de iniciar cualquier trabajo.</p></div>
+      <div class="step"><div class="n">4</div><h4>Solución garantizada</h4><p>Hacemos el trabajo y te entregamos la garantía por escrito.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="about" id="nosotros">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-story">
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Una empresa que eligió hacer las cosas bien.</h2>
+        <p>Plomería Antioquia nació al ver un problema común en el oficio: muchos cobran antes de diagnosticar. Se rompen paredes, se paga la visita y el daño sigue sin resolverse.</p>
+        <p>Por eso apostamos por otro camino. Invertimos en geófonos, cámaras de inspección y equipos Hidrojet profesionales, y nos capacitamos hasta dominarlos. Hoy encontramos fugas con precisión de centímetros y respaldamos cada servicio con garantía escrita.</p>
+        <p>No buscamos ser los más baratos. Queremos ser los que resuelven a la primera, sin romper de más y con un documento que respalda el trabajo.</p>
+        <p class="sig">Tu hogar en buenas manos.</p>
+      </div>
+      <div class="mv">
+        <figure class="about-photo"><img src="img/nosotros-equipo.webp" alt="Técnico de Plomería Antioquia revisando la tubería bajo un lavaplatos" loading="lazy"><figcaption>Personal capacitado y certificado</figcaption></figure>
+        <div class="mv-card"><h3><svg><use href="#i-target"/></svg>Misión</h3><p>Brindar soluciones de plomería rápidas, seguras y confiables a hogares y empresas de Antioquia, combinando tecnología de diagnóstico, personal calificado y un trato honesto, para resolver cada problema a la primera y con garantía escrita.</p></div>
+        <div class="mv-card v"><h3><svg><use href="#i-eye"/></svg>Visión</h3><p>Para 2030, ser la empresa de plomería de mayor confianza en Antioquia, reconocida por diagnosticar con precisión, cuidar el agua y el medio ambiente, y ampliar nuestra cobertura a nuevas regiones del país.</p></div>
+      </div>
+    </div>
+    <div class="values">
+      <div class="val"><div class="ic"><i><svg><use href="#i-heart"/></svg></i></div><h4>Honestidad</h4><p>Primero diagnosticamos, después cobramos. Si no podemos resolverlo, te lo decimos.</p></div>
+      <div class="val"><div class="ic"><i><svg><use href="#i-wave"/></svg></i></div><h4>Tecnología</h4><p>Equipos profesionales que reemplazan las suposiciones por datos.</p></div>
+      <div class="val"><div class="ic"><i><svg><use href="#i-shield"/></svg></i></div><h4>Garantía</h4><p>Documento firmado en cada servicio, sin letra menuda.</p></div>
+      <div class="val"><div class="ic"><i><svg><use href="#i-leaf"/></svg></i></div><h4>Cuidado del agua</h4><p>Cada fuga reparada es agua que se ahorra. Trabajamos pensando en el entorno.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COBERTURA -->
+<section class="coverage" id="cobertura">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Dónde trabajamos</span>
+      <h2>Zonas donde <em>prestamos servicio</em></h2>
+    </div>
+    <div class="cov-grid">
+      <article class="cov">
+        <h3><svg><use href="#i-pin"/></svg>Medellín y Valle de Aburrá</h3>
+        <p>Cobertura total con técnicos disponibles las 24 horas.</p>
+        <div class="chips"><span>Laureles</span><span>Belén</span><span>El Poblado</span><span>Centro</span><span>Robledo</span><span>Envigado</span><span>Sabaneta</span><span>Itagüí</span><span>Bello</span><span>La Estrella</span><span>Caldas</span><span>Copacabana</span><span>Girardota</span><span>Barbosa</span></div>
+        <p class="resp">Tiempo promedio de llegada: <b>35 min</b></p>
+      </article>
+      <article class="cov">
+        <h3><svg><use href="#i-pin"/></svg>Oriente y resto de Antioquia</h3>
+        <p>Servicio programado y atención de emergencias en municipios cercanos.</p>
+        <div class="chips"><span>Rionegro</span><span>La Ceja</span><span>Marinilla</span><span>Guarne</span><span>El Retiro</span><span>El Carmen de Viboral</span><span>El Santuario</span><span>Llanogrande</span><span>Todo Antioquia</span></div>
+        <p class="resp">Tiempo promedio de llegada: <b>50 min</b></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+   <div class="cta-txt">
+    <h2>¿Necesitas un plomero ahora mismo?</h2>
+    <p>Atendemos emergencias de inmediato, todos los días del año. Te respondemos en minutos.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-wa js-wa" data-msg="Hola, necesito atención inmediata de plomería" href="#contacto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Contactar por WhatsApp</a>
+      <a class="btn btn-call js-tel" href="#contacto"><svg><use href="#i-phone"/></svg>Llamar ahora</a>
+    </div>
+    <small>✓ Respuesta en minutos · ✓ Visita sin costo · ✓ Garantía escrita</small>
+   </div>
+   <figure class="cta-photo"><img src="img/tecnico-cta.webp" alt="Técnico sonriente de Plomería Antioquia trabajando en una cocina" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow">Contacto</span>
+        <div class="sec-head" style="margin-bottom:0"><h2>Hablemos de <em>tu problema</em></h2><p>Escríbenos y un técnico te orienta sin compromiso.</p></div>
+        <div class="c-list">
+          <div class="c-item"><div class="ic"><svg><use href="#i-phone"/></svg></div><div><small>Teléfono y WhatsApp</small><b class="js-phone">+57 300 000 0000</b></div></div>
+          <div class="c-item"><div class="ic"><svg><use href="#i-mail"/></svg></div><div><small>Correo</small><b class="js-email">contacto@plomeriaantioquia.com</b></div></div>
+          <div class="c-item"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><small>Cobertura</small><b>Medellín · Valle de Aburrá · Antioquia</b></div></div>
+          <div class="c-item"><div class="ic"><svg><use href="#i-clock"/></svg></div><div><small>Horario</small><b>24/7 · Todos los días</b></div></div>
+        </div>
+      </div>
+      <form class="quote" id="quote">
+        <h3>Solicita tu servicio</h3>
+        <div class="row2">
+          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" required placeholder="Tu nombre"></div>
+          <div class="field"><label for="f-barrio">Barrio o municipio</label><input id="f-barrio" placeholder="Ej: Envigado"></div>
+        </div>
+        <div class="field"><label for="f-servicio">Servicio</label>
+          <select id="f-servicio"><option>Destape de alcantarillado</option><option>Destaqueo con Hidrojet</option><option>Fugas y humedades</option><option>Inspección con cámara</option><option>Reparación de tuberías</option><option>Plomería general</option></select>
+        </div>
+        <div class="field"><label for="f-msg">Cuéntanos qué pasa</label><textarea id="f-msg" placeholder="Describe brevemente el problema"></textarea></div>
+        <button class="btn btn-wa" type="submit" style="justify-content:center;cursor:pointer"><svg><use href="#i-wa"/></svg>Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="#inicio"><svg><use href="#logo"/></svg><span class="brand-txt"><b>PLOMERÍA <span>ANTIOQUIA</span></b><i>Tu hogar en buenas manos</i></span></a>
+        <p class="f-about">Soluciones de plomería rápidas, seguras y profesionales para hogares y empresas en Medellín y Antioquia.</p>
+      </div>
+      <div><h5>Servicios</h5><ul><li><a href="#servicios">Destapes</a></li><li><a href="#servicios">Destaqueos</a></li><li><a href="#servicios">Fugas y humedades</a></li><li><a href="#servicios">Inspección</a></li><li><a href="#servicios">Reparaciones</a></li><li><a href="#servicios">Plomería general</a></li></ul></div>
+      <div><h5>Empresa</h5><ul><li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#tecnologia">Tecnología</a></li><li><a href="#cobertura">Cobertura</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+      <div><h5>Contacto</h5><ul><li class="js-phone">+57 300 000 0000</li><li>Medellín · Antioquia</li><li>24/7 · Todos los días</li></ul>
+        <a class="btn btn-wa js-wa" data-msg="Hola, quiero agendar un servicio" href="#contacto" target="_blank" rel="noopener" style="margin-top:16px"><svg><use href="#i-wa"/></svg>Agendar servicio</a></div>
+    </div>
+    <div class="f-bottom"><span>© <span id="yr">2026</span> Plomería Antioquia · Medellín · Colombia</span><i>Tu hogar en buenas manos</i></div>
+  </div>
+</footer>
+
+<a class="wa-float js-wa" data-msg="Hola Plomería Antioquia, necesito información" href="#contacto" target="_blank" rel="noopener" aria-label="Chatea con nosotros por WhatsApp"><svg><use href="#i-wa"/></svg><span>Chatea con nosotros</span></a>
+
+<script>
+/* ===== CONFIGURACIÓN: cambia aquí los datos reales ===== */
+const CONFIG = {
+  telefono: "+57 300 000 0000",   // como se muestra
+  whatsapp: "573000000000",       // solo dígitos, con indicativo 57
+  email: "contacto@plomeriaantioquia.com"
+};
+/* ======================================================= */
+(function(){
+  const telDigits = CONFIG.telefono.replace(/[^\d+]/g,"");
+  document.querySelectorAll(".js-phone").forEach(e=>e.textContent=CONFIG.telefono);
+  document.querySelectorAll(".js-email").forEach(e=>e.textContent=CONFIG.email);
+  document.querySelectorAll(".js-tel").forEach(a=>a.href="tel:"+telDigits);
+  const wa=(m)=>"https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(m||"Hola, necesito información");
+  document.querySelectorAll(".js-wa").forEach(a=>a.href=wa(a.dataset.msg));
+  document.getElementById("yr").textContent=new Date().getFullYear();
+
+  const b=document.getElementById("burger"),m=document.getElementById("menu");
+  b.addEventListener("click",()=>{const o=m.classList.toggle("open");b.setAttribute("aria-expanded",o)});
+  m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{m.classList.remove("open");b.setAttribute("aria-expanded","false")}));
+
+  document.getElementById("quote").addEventListener("submit",e=>{
+    e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const msg=`Hola, soy ${v("f-nombre")}${v("f-barrio")?" de "+v("f-barrio"):""}. Necesito: ${v("f-servicio")}. ${v("f-msg")}`;
+    const a=document.createElement("a");a.href=wa(msg);a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
+  });
+})();
+</script>
+</body>
+</html>
